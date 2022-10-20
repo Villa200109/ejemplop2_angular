@@ -1,0 +1,24 @@
+<div class="row">
+  <form (submit)="(guardarUsuario)" [formGroup]="form">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="nombre" matInput />
+        <mat-error *ngIf="form.invalid">{{ obtenerErrorCampo() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="password" matInput />
+        <mat-error *ngIf="form.invalid">{{ obtenerErrorCampoP() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button color="primary" [disabled]="form.invalid" mat-button>
+        Guardar
+      </button>
+      <a mat-stroked-button>Cancelar</a>
+    </div>
+  </form>
+</div>
